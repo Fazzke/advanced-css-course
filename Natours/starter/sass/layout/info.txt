@@ -1,0 +1,4 @@
+Layout Folder stores the custom layout components from your page.
+
+Code, which you will use only once per page, but very often - like haeder
+or footer - goes here.

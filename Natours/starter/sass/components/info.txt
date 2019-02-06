@@ -1,0 +1,3 @@
+Components Folder stores all the custom components from your page.
+
+Code, which you will use multiple imes on page goes here.

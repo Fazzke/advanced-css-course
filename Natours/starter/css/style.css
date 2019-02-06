@@ -1,4 +1,46 @@
 @charset "UTF-8";
+/***** All Variable Declarations Go Here ******/
+/* 1. COLORS */
+/******** COLORS ********/
+/********* KEYFRAMES, ANIMATION DEFINITIONS GO HERE *****/
+@keyframes moveToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    opacity: 0.9;
+    transform: translateX(2rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveToRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    opacity: 0.9;
+    transform: translateX(-10rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+/* @keyframes buttonUp {
+    0% {
+        transform: translateY(-3px);        
+    }
+    100% {
+        transform: translateY(-3px);
+    }
+} */
 *,
 *::after,
 *::before {
@@ -12,36 +54,15 @@ html {
   /* 62% der eingestellten Default-Root-Size, die der Nutzer auf dem Rechner eingestellt hat */ }
 
 body {
+  box-sizing: border-box; }
+
+/**** ALL FONT-RELATED CODE GOES HERE *******/
+body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  position: relative;
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  /* nimmt zwei werte, der zweite wert ist undeklariert automatisch center, responsive wird rechts und links etwas entnommen */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   color: #FFF;
@@ -49,49 +70,25 @@ body {
   backface-visibility: hidden;
   /* eigentlich dazu da bei ner rotation eines Obkekts den Hintergrund zu verstecken -  */
   /* Animationen können - warum auch immer - manchmal leicht wackeln, sich schuetteln */ }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation-name: moveToLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out; }
-
-@keyframes moveToLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  80% {
-    opacity: 0.9;
-    transform: translateX(2rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.74rem;
-  /* animation-name: moveToRight;
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveToLeft;
     animation-duration: 1s;
-    animation-timing-function: ease-out; */
-  animation: moveToRight 1s ease-out;
-  /* kuerz die Drei einfach ab schnubbie */
-  margin-bottom: 6rem; }
-
-@keyframes moveToRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    opacity: 0.9;
-    transform: translateX(-10rem); }
-  100% {
-    opacity: 1;
-    transform: translateX(0); } }
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    /* animation-name: moveToRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out; */
+    animation: moveToRight 1s ease-out;
+    /* kuerz die Drei einfach ab schnubbie */
+    margin-bottom: 6rem; }
 
 .btn:link, .btn:visited {
   display: inline-block;
@@ -107,34 +104,31 @@ body {
 
 .btn:hover {
   /* firefox flickern lösungsmöglichkeiten:
-    filter: grayscale(0%); 
-    -moz-transform: translateY(-5px) rotate(0.02deg);
-    backface-visibility: hidden;
-    or will-change: transform; into .btn parent-container for pre-rendering;
-    ODER: niemals transformation ohne startwerte also immer mit keyframes!
-    */
+        filter: grayscale(0%); 
+        -moz-transform: translateY(-5px) rotate(0.02deg);
+        backface-visibility: hidden;
+        or will-change: transform; into .btn parent-container for pre-rendering;
+        ODER: niemals transformation ohne startwerte also immer mit keyframes!
+        */
   transform: translateY(-0.3rem);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-0.1rem);
   /* weil du immernoch weiterhoverst nachdem du gedrückt hast solltest du nur einen kleinen schritt nach unten machen */
   box-shadow: 0 0.5rem 0.1rem 0 rgba(0, 0, 0, 0.2); }
 
-/* @keyframes buttonUp {
-    0% {
-        transform: translateY(-3px);        
-    }
-    100% {
-        transform: translateY(-3px);
-    }
-} */
 .btn:active {
   transform: translateY(-0.1rem); }
 
 .btn--white {
   background-color: #FFF;
   color: #777; }
+  .btn--white::after {
+    background-color: #FFF; }
 
 .btn::after {
   content: "";
@@ -148,21 +142,27 @@ body {
   z-index: -1;
   transition: all 0.4s; }
 
-.btn-white::after {
-  background-color: #FFF; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
 .btn--animated {
   animation: moveInButton .5s ease-out .75s;
   animation-fill-mode: backwards; }
 
-@keyframes moveInButton {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translateY(0); } }
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(231, 84, 128, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /* nimmt zwei werte, der zweite wert ist undeklariert automatisch center, responsive wird rechts und links etwas entnommen */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }

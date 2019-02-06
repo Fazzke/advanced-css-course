@@ -1,0 +1,64 @@
+.btn {
+    &:link, &:visited {
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        border-radius: 10rem;
+        transition: all 0.2s;
+        position: relative;
+        animation: moveInButton 0.4s ease-out .75s;
+        animation-fill-mode: backwards;
+        font-size: 1.6rem;
+    }
+    &:hover {
+        /* firefox flickern lösungsmöglichkeiten:
+        filter: grayscale(0%); 
+        -moz-transform: translateY(-5px) rotate(0.02deg);
+        backface-visibility: hidden;
+        or will-change: transform; into .btn parent-container for pre-rendering;
+        ODER: niemals transformation ohne startwerte also immer mit keyframes!
+        */
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    &:active {
+        transform: translateY(-0.1rem); /* weil du immernoch weiterhoverst nachdem du gedrückt hast solltest du nur einen kleinen schritt nach unten machen */
+        box-shadow: 0 0.5rem 0.1rem 0 rgba($color-black, 0.2); 
+    }
+    &:active {
+        transform: translateY(-0.1rem);
+    }
+    
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all 0.4s
+    }
+    
+    &--animated {
+        animation: moveInButton .5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
+}

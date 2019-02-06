@@ -1,0 +1,201 @@
+$color-pri-light: #7ed56f;
+$color-pri-mid: #55c57a;
+$color-pri-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #FFF;
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* Force die box-sizing vererbbar zu werden */
+}
+
+html {
+    font-size: 62.5%; /* 62% der eingestellten Default-Root-Size, die der Nutzer auf dem Rechner eingestellt hat */ 
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    padding: 3rem;
+    box-sizing: border-box;
+}
+
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba($color-pri-light, 0.8), rgba($color-pri-dark, 0.8)),url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top; /* nimmt zwei werte, der zweite wert ist undeklariert automatisch center, responsive wird rechts und links etwas entnommen */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden; /* eigentlich dazu da bei ner rotation eines Obkekts den Hintergrund zu verstecken -  */
+                                    /* Animationen können - warum auch immer - manchmal leicht wackeln, sich schuetteln */  
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveToLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveToLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80% {
+        opacity: 0.9;
+        transform: translateX(+2rem);
+    }    
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    /* animation-name: moveToRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; */
+    animation: moveToRight 1s ease-out; /* kuerz die Drei einfach ab schnubbie */
+    margin-bottom: 6rem;
+}
+
+@keyframes moveToRight {
+    0% {
+        opacity: 0;
+        transform: translateX(+10rem);
+    }
+    80% {
+        opacity: 0.9;
+        transform: translateX(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.btn:link, .btn:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    animation: moveInButton 0.4s ease-out .75s;
+    animation-fill-mode: backwards;
+    font-size: 1.6rem;
+}
+
+.btn:hover {
+    /* firefox flickern lösungsmöglichkeiten:
+    filter: grayscale(0%); 
+    -moz-transform: translateY(-5px) rotate(0.02deg);
+    backface-visibility: hidden;
+    or will-change: transform; into .btn parent-container for pre-rendering;
+    ODER: niemals transformation ohne startwerte also immer mit keyframes!
+    */
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-0.1rem); /* weil du immernoch weiterhoverst nachdem du gedrückt hast solltest du nur einen kleinen schritt nach unten machen */
+    box-shadow: 0 0.5rem 0.1rem 0 rgba(0, 0, 0, 0.2);
+
+}
+
+/* @keyframes buttonUp {
+    0% {
+        transform: translateY(-3px);        
+    }
+    100% {
+        transform: translateY(-3px);
+    }
+} */
+
+.btn:active {
+    transform: translateY(-0.1rem);
+}
+
+.btn--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s
+}
+
+.btn-white::after {
+    background-color: $color-white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--animated {
+    animation: moveInButton .5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

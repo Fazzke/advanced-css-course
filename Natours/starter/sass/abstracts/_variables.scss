@@ -1,14 +1,32 @@
 /***** All Variable Declarations Go Here ******/
 
-/* 1. COLORS */
+/* 1. COLORS        */
+/* 2. GRID LAYOUT   */
+/* 3. FONT-SIZE     */
 
 
-/******** COLORS ********/
+/*********** 1. COLORS ***********/
 
 //$color-pri-light: #7ed56f;
 $color-pri-light: #e75480;
 $color-pri-mid: #55c57a;
 $color-pri-dark: #28b485;
+
+$color-grey-light-1: #F7F7F7;
+
 $color-grey-dark: #777;
+
 $color-white: #FFF;
 $color-black: #000;
+
+
+/********** 2. GRID LAYOUT **********/
+
+$grid-width: 114rem;        // 1140 is CSS Standard
+$gutter-vertical: 8rem;     // space between row, till other row
+$gutter-horizontal: 6rem;    // space between columns
+
+
+/************ 3. FONT-SIZE **********/
+
+$default-font-size: 1.6rem;

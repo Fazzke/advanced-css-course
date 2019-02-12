@@ -1,0 +1,9 @@
+/* mixins können wir immer wieder verwenden, helfer-Klassen */@at-root
+
+@mixin clearfix {
+    &::after {
+        content: ""; //content and display always needed in ::after
+        display: table;
+        clear: both; //clears both, float-left and float-right
+    }
+}

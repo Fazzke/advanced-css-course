@@ -1,7 +1,12 @@
 @charset "UTF-8";
+/* mixins können wir immer wieder verwenden, helfer-Klassen */
 /***** All Variable Declarations Go Here ******/
-/* 1. COLORS */
-/******** COLORS ********/
+/* 1. COLORS        */
+/* 2. GRID LAYOUT   */
+/* 3. FONT-SIZE     */
+/*********** 1. COLORS ***********/
+/********** 2. GRID LAYOUT **********/
+/************ 3. FONT-SIZE **********/
 /********* KEYFRAMES, ANIMATION DEFINITIONS GO HERE *****/
 @keyframes moveToLeft {
   0% {
@@ -90,6 +95,43 @@ body {
     /* kuerz die Drei einfach ab schnubbie */
     margin-bottom: 6rem; }
 
+.heading-secondary {
+  display: inline-block;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700px;
+  background-image: linear-gradient(to right, #e75480, #28b485);
+  background-clip: text;
+  /* clip text-background to text */
+  color: transparent;
+  /* make text transparent for the bg */
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(3deg); }
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.6rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+/* Utilitie Classes has only one simple goal */
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem; }
+
 .btn:link, .btn:visited {
   display: inline-block;
   text-transform: uppercase;
@@ -146,6 +188,71 @@ body {
   animation: moveInButton .5s ease-out .75s;
   animation-fill-mode: backwards; }
 
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #e75480;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid #e75480;
+  padding: 3px;
+  transition: all .2s; }
+
+.btn-text:hover {
+  background-color: #e75480;
+  color: #FFF;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  background-color: #e75480;
+  color: #FFF;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.06);
+  transform: translateY(0px); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0px 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    .composition__photo--p2 {
+      left: 40;
+      top: 4rem; }
+    .composition__photo--p3 {
+      left: 0;
+      top: -2rem; }
+
+.row {
+  max-width: 114rem;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 12rem) / 3); }
+  .row .col-1-of-4 {
+    width: calc((100% - 18rem) / 4); }
+  .row .col-2-of-3 {
+    width: calc(2 * ((100% - 12rem) / 3) + 6rem); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 18rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 18rem) / 4) + 12rem); }
+
 .header {
   position: relative;
   height: 95vh;
@@ -166,3 +273,10 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center; }
+
+/* specific, not reusable code */
+.section-about {
+  background-color: #F7F7F7;
+  padding: 25rem 0;
+  margin-top: -20vh;
+  /* Its the 95vh polygon - the missing 20vh */ }

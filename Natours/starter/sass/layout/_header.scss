@@ -4,6 +4,7 @@
     background-image: linear-gradient(to right bottom, rgba($color-pri-light, 0.8), rgba($color-pri-dark, 0.8)),url(../img/hero.jpg);
     background-size: cover;
     background-position: top; /* nimmt zwei werte, der zweite wert ist undeklariert automatisch center, responsive wird rechts und links etwas entnommen */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     &__logo-box {

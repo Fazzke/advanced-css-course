@@ -262,18 +262,20 @@ body {
   perspective: 60rem;
   -moz-perspective: 60rem;
   position: relative;
-  height: 50rem;
+  height: 52rem;
   /* avoid position collapse with giving height to card and to card__side */ }
   .card__side {
-    color: white;
+    color: #777;
     font-size: 2rem;
-    transition: all 0.6s linear;
+    transition: all .6s linear;
     position: absolute;
     top: 0;
     left: 0;
-    height: 50rem;
+    height: 52rem;
     width: 100%;
     backface-visibility: hidden;
+    border-radius: 3px;
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
     .card__side--front {
       background-color: #FFF; }
@@ -295,6 +297,50 @@ body {
     transform: rotateY(-180deg); }
   .card:hover .card__side--back {
     transform: rotateY(0); }
+  .card__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    .card__picture--1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 221, 57, 0.5), rgba(252, 133, 0, 0.5)), url(../img/nat-5.jpg); }
+    .card__picture--2 {
+      background-image: linear-gradient(to right bottom, rgba(241, 36, 174, 0.5), rgba(112, 43, 161, 0.5)), url(../img/nat-5.jpg); }
+    .card__picture--3 {
+      background-image: linear-gradient(to right bottom, rgba(0, 242, 181, 0.5), rgba(10, 57, 113, 0.5)), url(../img/nat-5.jpg); }
+  .card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #FFF;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    text-align: right;
+    width: 55%; }
+  .card__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 221, 57, 0.95), rgba(252, 133, 0, 0.95)); }
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, rgba(241, 36, 174, 0.95), rgba(112, 43, 161, 0.95)); }
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, rgba(0, 242, 181, 0.95), rgba(10, 57, 113, 0.95)); }
+  .card__details {
+    padding: 3rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+    .card__details li {
+      font-size: 1.5rem;
+      padding: 1rem;
+      text-align: center; }
+      .card__details li:not(:last-child) {
+        border-bottom: 1px solid #bbbbbb; }
 
 .row {
   max-width: 114rem;
@@ -329,6 +375,7 @@ body {
   background-size: cover;
   background-position: top;
   /* nimmt zwei werte, der zweite wert ist undeklariert automatisch center, responsive wird rechts und links etwas entnommen */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
   .header__logo-box {
     position: absolute;

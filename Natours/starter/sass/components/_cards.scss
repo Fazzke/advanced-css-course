@@ -32,7 +32,7 @@
             }
 
             &-2 {
-                background-image: linear-gradient(to right bottom, rgba($color-sec-2-light, 1), rgba($color-sec-2-dark, 1));
+                background-image: linear-gradient(to right bottom, rgba($color-pri-light, 1), rgba($color-sec-2-dark, 1));
                 background-size: cover;
                 background-position: top;
             }
@@ -68,10 +68,10 @@
         }
         &--2 {
             // Use dir from compiled style.css path
-            background-image: linear-gradient(to right bottom, rgba($color-sec-2-light, 0.5), rgba($color-sec-2-dark, 0.5)), url(../img/nat-5.jpg);
+            background-image: linear-gradient(to right bottom, rgba($color-pri-light, 0.5), rgba($color-sec-2-dark, 0.5)), url(../img/nat-6.jpg);
         }        
         &--3 {
-            background-image: linear-gradient(to right bottom, rgba($color-sec-3-light, 0.5), rgba($color-sec-3-dark, 0.5)), url(../img/nat-5.jpg);
+            background-image: linear-gradient(to right bottom, rgba($color-sec-3-light, 0.5), rgba($color-sec-3-dark, 0.5)), url(../img/nat-7.jpg);
         }
     }
 
@@ -97,7 +97,7 @@
             background-image: linear-gradient(to right bottom, rgba($color-sec-1-light, 0.95), rgba($color-sec-1-dark, 0.95));
         }
         &--2 {
-            background-image: linear-gradient(to right bottom, rgba($color-sec-2-light, 0.95), rgba($color-sec-2-dark, 0.95));            
+            background-image: linear-gradient(to right bottom, rgba($color-pri-light, 0.95), rgba($color-sec-2-dark, 0.95));            
         }
         &--3 {
             background-image: linear-gradient(to right bottom, rgba($color-sec-3-light, 0.95), rgba($color-sec-3-dark, 0.95));            
@@ -123,5 +123,29 @@
                 border-bottom: 1px solid $color-grey-middle;
             }
         }
+    }
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50%);
+        width: 100%;
+    }
+
+    &__price-box {
+        text-align: center;
+        color: $color-white;
+    }
+    
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+    
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+        margin-bottom: 8rem;
     }
 }

@@ -43,6 +43,7 @@ body {
     font-weight: 700px;
     background-image: linear-gradient(to right, $color-pri-light, $color-pri-dark);
     background-clip: text;  /* clip text-background to text */
+    -webkit-background-clip: text;
     color: transparent; /* make text transparent for the bg */
     transition: all .2s;
 

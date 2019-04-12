@@ -1,5 +1,5 @@
 .btn {
-    &:link, &:visited {
+    &, &:link, &:visited {
         display: inline-block;
         text-transform: uppercase;
         text-decoration: none;
@@ -10,6 +10,7 @@
         animation: moveInButton 0.4s ease-out .75s;
         animation-fill-mode: backwards;
         font-size: $default-font-size;
+        border: none;
     }
     &:hover {
         /* firefox flickern lösungsmöglichkeiten:
@@ -27,7 +28,8 @@
             opacity: 0;
         }
     }
-    &:active {
+    &:active, &:focus {
+        outline: none;
         transform: translateY(-0.1rem); /* weil du immernoch weiterhoverst nachdem du gedrückt hast solltest du nur einen kleinen schritt nach unten machen */
         box-shadow: 0 0.5rem 0.1rem 0 rgba($color-black, 0.2); 
     }

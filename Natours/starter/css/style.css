@@ -1,5 +1,23 @@
 @charset "UTF-8";
 /* mixins können wir immer wieder verwenden, helfer-Klassen */
+/******* MEDIA QUERY MIXIN *******/
+/****************** MIXIN NAKED: ************/
+/*
+
+@include mediaquery(big) {
+    
+}
+@include mediaquery(land) {
+    
+}
+@include mediaquery(port) {
+    
+}
+@include mediaquery(phone) {
+
+}
+
+*/
 /***** All Variable Declarations Go Here ******/
 /* 1. COLORS        */
 /* 2. GRID LAYOUT   */
@@ -57,17 +75,32 @@
 html {
   font-size: 62.5%;
   /* 62% der eingestellten Default-Root-Size, die der Nutzer auf dem Rechner eingestellt hat */ }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
 
 body {
+  padding: 3rem;
   box-sizing: border-box; }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0rem; } }
 
 /**** ALL FONT-RELATED CODE GOES HERE *******/
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
+  color: #777; }
 
 .heading-primary {
   color: #FFF;

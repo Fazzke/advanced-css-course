@@ -14,3 +14,59 @@
     left: 50%;
     transform: translate( -50%, -50%);
 }
+
+
+/******* MEDIA QUERY MIXIN *******/
+
+// Standard of Project: Desktop First [1200 - 1800px]
+
+// Phone                0 - 600px
+// Tablet Portrait      600 - 900px
+// Tablet lanscape      900 - 1200px
+// Bigger Desktop       1800px ++
+
+// NOTICE = browsers often fail with autodetect in Pixels, use EM | 1EM = 16px
+
+// WORK ORDER: base -> typography -> general layout -> grid -> page layout -> components
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == big {
+        @media (min-width: 112.5em) {   // 1800px
+            @content;    
+        }
+    }
+    @else if $breakpoint == land  {
+        @media (max-width: 75em) {     // 1200px
+            @content;    
+        }
+    }
+    @else if $breakpoint == port {
+        @media (max-width: 56.25em) {   // 900px
+            @content;    
+        }
+    }
+    @else if $breakpoint == phone {
+        @media (max-width: 37.5em) {    // 600px
+            @content;    
+        }
+    }
+}
+
+/****************** MIXIN NAKED: ************/
+
+/*
+
+@include mediaquery(big) {
+    
+}
+@include mediaquery(land) {
+    
+}
+@include mediaquery(port) {
+    
+}
+@include mediaquery(phone) {
+
+}
+
+*/

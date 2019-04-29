@@ -11,11 +11,16 @@
         height: 7rem;
         width: 7rem;
         position: fixed;
-        top: 4rem;
+        top: 6rem;
         right: 6rem;
         border-radius: 50%;
         box-shadow: 0 1rem 3rem rgba($color-black, .2);
         text-align: center;
+
+        @include respond(port) {
+            top: 3rem;
+            right: 3rem; 
+        }
     }
 
     &__background {
@@ -24,10 +29,15 @@
         width: 6rem;
         border-radius: 50%;
         position: fixed;  //position fixed is totaly same as absolute, but dont change position when scrolling the page
-        top: 4.5rem;
+        top: 6.5rem;
         right: 6.5rem;
         background-image: radial-gradient($color-pri-light, $color-pri-dark);  //radial starts in the middle of an element
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+        @include respond(port) {
+            top: 3.3rem;
+            right: 3.3rem; 
+        }
     }
     
     

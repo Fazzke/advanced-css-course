@@ -9,7 +9,18 @@
     padding-left: 9rem;
     font-size: $default-font-size;
     transform: skew(-12deg);
+    
+    @include respond(port) {
+        width: 100%;
+        padding: 4rem 2rem 4rem 8rem;
 
+    }
+
+    @include respond(phone) {
+        width: 100%;
+        transform: skew(0);
+        padding: 2rem 1rem 2rem 4rem;
+    }
 
     &:last-child {
        margin-bottom: 0;     
@@ -35,6 +46,10 @@
         transform: translateX(-5rem) skew(12deg);
 
         position: relative;
+
+        @include respond(phone) {
+            transform: translateX(-3rem) skew(0);
+        }
     }
 
     &__img {
@@ -45,6 +60,10 @@
     }
 
     &__text {
+        @include respond(phone) {
+            transform: skew(0);
+            padding-left: 5rem;
+        }
 
     }
 
@@ -73,4 +92,5 @@
         filter: blur(3px) brightness(60%);
         // backface-visibility: hidden;
     }
+
 }

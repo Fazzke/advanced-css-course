@@ -2,23 +2,46 @@
     max-width: $grid-width; //1140px sind CSS-Standard
     margin: 0 auto; // center block element inside another block-element
     
+    @include respond(port) {
+        max-width: 60rem !important;
+        padding: 0 1rem;                      
+    }
+    @include respond(phone) {
+        max-width: 38rem !important;                      
+    }
+
     &:not(:last-child) {  //every row but not the last child
         margin-bottom: $gutter-vertical;
+
+        @include respond(port) {
+            margin-bottom: $gutter-vertical-small !important;                      
+        }
     }
 
     @include clearfix;
 
       //select all elements witch begins with col-
     [class^="col-"] {
+        float: left;
+
         &:not(:last-child) {
              //every child but not last child has left margin
             margin-right: $gutter-horizontal;
+
+            @include respond(port) {
+                margin-right: 0 !important;
+                margin-bottom: $gutter-vertical-small !important;
+            }
         }
-        float: left;
+
+        @include respond(port) {
+            width: 100% !important;         
+        }
     }
 
     .col-1-of-2 {
         width: calc((100% - #{$gutter-horizontal}) / 2);
+
     }
 
     .col-1-of-3 {

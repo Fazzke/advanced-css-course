@@ -11,7 +11,8 @@ body {
     color: $color-white;
     text-transform: uppercase;
     backface-visibility: hidden; /* eigentlich dazu da bei ner rotation eines Obkekts den Hintergrund zu verstecken -  */
-                                    /* Animationen können - warum auch immer - manchmal leicht wackeln, sich schuetteln */  
+                                    /* Animationen können - warum auch immer - manchmal leicht wackeln, sich schuetteln */
+                                     
     &--main {
         display: block;
         font-size: 6rem;
@@ -20,6 +21,11 @@ body {
         animation-name: moveToLeft;
         animation-duration: 1s;
         animation-timing-function: ease-out;
+
+            @include respond(phone) {
+                letter-spacing: 1rem;
+                font-size: 5rem;       
+            }
     }
 
     &--sub {
@@ -32,6 +38,11 @@ body {
         animation-timing-function: ease-out; */
         animation: moveToRight 1s ease-out; /* kuerz die Drei einfach ab schnubbie */
         margin-bottom: 6rem;
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+            font-size: 3rem;       
+        }
     }
 }
 
@@ -45,6 +56,14 @@ body {
     -webkit-background-clip: text;
     color: transparent; /* make text transparent for the bg */
     transition: all .2s;
+
+    @include respond(port) {
+        font-size: 2.7rem;       
+    }
+
+    @include respond(port) {
+        font-size: 2.1rem;       
+    }
 
     &:hover {
         transform: skewY(2deg) skewX(3deg);

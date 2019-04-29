@@ -4,15 +4,29 @@
     padding: 10rem;
     font-size: 1.4rem;
 
+    @include respond(port) {
+        padding: 4rem 1rem;
+    }
+
     &__navigation {
         border-top: 2px solid rgba($color-grey-dark, .5);
         padding-top: 1rem;
         display: inline-block; // with inline-block the line is only as long as the font-stuff needs
+
+        @include respond(port) {
+            width: 100%;
+            text-align: center;
+        }
     }
 
     &__logo-box {
         text-align: center;
         margin-bottom: 8rem;
+        margin-top: 2rem;
+
+        @include respond(port) {
+            margin-bottom: 6rem; 
+        }
     }
 
     &__logo {
@@ -57,5 +71,11 @@
         padding-top: 1rem;
         width: 97%;
         float: right;
+
+        @include respond(port) {
+            text-align: center;
+            width: 100%;
+            float: none;
+        }
     }
 }
